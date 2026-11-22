@@ -36,7 +36,8 @@
   function urlKarya(k) { return 'karya.html?id=' + encodeURIComponent(k.id); }
   var karya = D.karya || [];
   var unggulan = karya.filter(function (k) { return k.unggulan; });
-  var emailUrl = 'mailto:' + (D.email || '');
+  var emailTujuan = D.email || 'insaninkamiliaannisaa@gmail.com';
+  var emailUrl = 'mailto:' + emailTujuan;
 
   // ---------- Beranda ----------
   function beranda() {
@@ -172,7 +173,7 @@
         '<h2 id="cta-h" data-bagian="teks">' + miring(D.judulAjak) + '</h2><p>' + esc(D.ketAjak) + '</p>' +
         '<div class="hero-cta" style="justify-content:center;margin-top:1.75rem">' +
           '<a class="btn glass-bubble" href="' + esc(ctaHref) + '"' + (isExt ? ' target="_blank" rel="noopener"' : '') + ' data-bagian="utama">' + ikon('globe') + esc(D.tombolAjak || 'Buka Website Ekskul') + '</a>' +
-          '<a class="btn ghost glass-bubble" href="mailto:' + esc(D.email) + '">' + ikon('email') + esc(D.email) + '</a>' +
+          '<a class="btn ghost glass-bubble" href="mailto:' + esc(emailTujuan) + '">' + ikon('email') + esc(emailTujuan) + '</a>' +
           '<a class="btn ghost glass-bubble" href="https://github.com/Insanin52010" target="_blank" rel="noopener" aria-label="GitHub Insanin52010">' + ikon('github') + 'GitHub</a>' +
         '</div>' +
 
@@ -181,6 +182,10 @@
             '<h3>KIRIM PESAN</h3>' +
             '<span class="contact-star" aria-hidden="true">' + ikon('bintang') + '</span>' +
           '</div>' +
+          '<p style="margin:0 0 1.25rem;font-size:.9rem;opacity:.85;display:flex;align-items:center;gap:.45rem">' +
+            '<span style="display:inline-flex;width:16px;height:16px">' + ikon('email') + '</span>' +
+            '<span>Email tujuan: <strong>' + esc(emailTujuan) + '</strong></span>' +
+          '</p>' +
           '<form id="formKirimPesan" class="contact-form">' +
             '<div class="field-group">' +
               '<label for="kp-nama">NAMA KAMU</label>' +
@@ -194,16 +199,16 @@
               '<label for="kp-pesan">PESAN</label>' +
               '<textarea id="kp-pesan" name="pesan" rows="4" placeholder="Tuliskan pesan kamu..." required></textarea>' +
             '</div>' +
-            '<button type="submit" class="btn-kirim-pesan" data-bagian="utama">' +
-              '<span>KIRIM PESAN</span>' +
+            '<button type="submit" id="kp-btn" class="btn-kirim-pesan" data-bagian="utama">' +
+              '<span id="kp-btn-text">KIRIM PESAN</span>' +
               '<span aria-hidden="true">↗</span>' +
             '</button>' +
-            '<p class="contact-note" id="kp-status">Formulir ini merupakan demo dan tidak menggunakan database.</p>' +
+            '<p class="contact-note" id="kp-status">Pesan Anda akan langsung masuk ke email saya (' + esc(emailTujuan) + ').</p>' +
           '</form>' +
         '</div>' +
       '</div></section>' +
       '<footer class="foot" data-bagian="nav"><div class="wrap"><div class="foot-row"><ul><li><a href="index.html">Beranda</a></li><li><a href="index.html#karya">Karya</a></li><li><a href="index.html#pendidikan">Pendidikan</a></li><li><a href="index.html#skill">Skill</a></li><li><a href="index.html#tentang">Tentang</a></li>' +
-        '<li><a href="mailto:' + esc(D.email) + '">' + esc(D.email) + '</a></li>' +
+        '<li><a href="mailto:' + esc(emailTujuan) + '">' + esc(emailTujuan) + '</a></li>' +
         sos.filter(function (s) { return /^http/.test(s.url); }).map(function (s) { return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.nama) + '</a></li>'; }).join('') +
         '</ul><small>© ' + new Date().getFullYear() + ' <span data-tema-nama>' + esc(NAMA) + '</span></small></div>' +
         '<p class="kredit">Template oleh <a href="https://malikisaputra.biz.id" target="_blank" rel="noopener">@malikisaputra</a> · Maliki Saputra</p></div>' +
@@ -214,9 +219,45 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         var nama = $('#kp-nama').value.trim();
+        var emailPengirim = $('#kp-email').value.trim();
+        var pesan = $('#kp-pesan').value.trim();
         var st = $('#kp-status');
-        if (st) st.textContent = 'Terima kasih, ' + nama + '! Pesan demo berhasil dikirim.';
-        form.reset();
+        var btn = $('#kp-btn');
+        var btnText = $('#kp-btn-text');
+
+        if (btn) btn.disabled = true;
+        if (btnText) btnText.textContent = 'MENGIRIM...';
+        if (st) st.textContent = 'Sedang mengirim pesan ke ' + emailTujuan + '...';
+
+        fetch('https://formsubmit.co/ajax/' + encodeURIComponent(emailTujuan), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: nama,
+            email: emailPengirim,
+            _subject: 'Pesan Baru dari Portofolio — ' + nama,
+            message: pesan
+          })
+        })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data && (data.success === 'true' || data.success === true)) {
+            if (st) st.textContent = 'Terima kasih, ' + nama + '! Pesan Anda sudah berhasil masuk ke email saya (' + emailTujuan + ').';
+            form.reset();
+          } else {
+            if (st) st.textContent = 'Pesan dikirim! Jika ini pengiriman pertama, silakan cek email ' + emailTujuan + ' untuk aktivasi.';
+          }
+        })
+        .catch(function () {
+          if (st) st.textContent = 'Gagal mengirim otomatis. Silakan kirim langsung ke ' + emailTujuan + '.';
+        })
+        .finally(function () {
+          if (btn) btn.disabled = false;
+          if (btnText) btnText.textContent = 'KIRIM PESAN';
+        });
       });
     }
   }
