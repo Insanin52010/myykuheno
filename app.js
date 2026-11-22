@@ -168,6 +168,8 @@
     var sos = D.sosial || [];
     var ctaHref = D.urlAjak || emailUrl;
     var isExt = /^http/.test(ctaHref);
+    var urlTerimaKasih = new URL('terimakasih.html', location.href).href;
+
     $('#akhir').outerHTML =
       '<section class="cta" id="kontak" aria-labelledby="cta-h"><div class="wrap cta-inner">' + obj('img/objek/envelope.webp', 'float o-envelope', '136px') + obj('img/objek/paperplane.webp', 'float o-plane', '168px') +
         '<h2 id="cta-h" data-bagian="teks">' + miring(D.judulAjak) + '</h2><p>' + esc(D.ketAjak) + '</p>' +
@@ -186,10 +188,13 @@
             '<span style="display:inline-flex;width:16px;height:16px">' + ikon('email') + '</span>' +
             '<span>Email tujuan: <strong>' + esc(emailTujuan) + '</strong></span>' +
           '</p>' +
-          '<form id="formKirimPesan" class="contact-form">' +
+          '<form id="formKirimPesan" class="contact-form" action="https://formsubmit.co/' + encodeURIComponent(emailTujuan) + '" method="POST">' +
+            '<input type="hidden" name="_subject" value="Pesan Baru dari Website Portofolio">' +
+            '<input type="hidden" name="_next" value="' + esc(urlTerimaKasih) + '">' +
+            '<input type="hidden" name="_template" value="table">' +
             '<div class="field-group">' +
               '<label for="kp-nama">NAMA KAMU</label>' +
-              '<input type="text" id="kp-nama" name="nama" placeholder="Masukkan nama kamu" required>' +
+              '<input type="text" id="kp-nama" name="name" placeholder="Masukkan nama kamu" required>' +
             '</div>' +
             '<div class="field-group">' +
               '<label for="kp-email">EMAIL KAMU</label>' +
@@ -197,7 +202,7 @@
             '</div>' +
             '<div class="field-group">' +
               '<label for="kp-pesan">PESAN</label>' +
-              '<textarea id="kp-pesan" name="pesan" rows="4" placeholder="Tuliskan pesan kamu..." required></textarea>' +
+              '<textarea id="kp-pesan" name="message" rows="4" placeholder="Tuliskan pesan, masukan, atau saran kamu..." required></textarea>' +
             '</div>' +
             '<button type="submit" id="kp-btn" class="btn-kirim-pesan" data-bagian="utama">' +
               '<span id="kp-btn-text">KIRIM PESAN</span>' +
@@ -216,48 +221,11 @@
 
     var form = $('#formKirimPesan');
     if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var nama = $('#kp-nama').value.trim();
-        var emailPengirim = $('#kp-email').value.trim();
-        var pesan = $('#kp-pesan').value.trim();
-        var st = $('#kp-status');
-        var btn = $('#kp-btn');
+      form.addEventListener('submit', function () {
         var btnText = $('#kp-btn-text');
-
-        if (btn) btn.disabled = true;
+        var st = $('#kp-status');
         if (btnText) btnText.textContent = 'MENGIRIM...';
-        if (st) st.textContent = 'Sedang mengirim pesan ke ' + emailTujuan + '...';
-
-        fetch('https://formsubmit.co/ajax/' + encodeURIComponent(emailTujuan), {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            name: nama,
-            email: emailPengirim,
-            _subject: 'Pesan Baru dari Portofolio — ' + nama,
-            message: pesan
-          })
-        })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data && (data.success === 'true' || data.success === true)) {
-            if (st) st.textContent = 'Terima kasih, ' + nama + '! Pesan Anda sudah berhasil masuk ke email saya (' + emailTujuan + ').';
-            form.reset();
-          } else {
-            if (st) st.textContent = 'Pesan dikirim! Jika ini pengiriman pertama, silakan cek email ' + emailTujuan + ' untuk aktivasi.';
-          }
-        })
-        .catch(function () {
-          if (st) st.textContent = 'Gagal mengirim otomatis. Silakan kirim langsung ke ' + emailTujuan + '.';
-        })
-        .finally(function () {
-          if (btn) btn.disabled = false;
-          if (btnText) btnText.textContent = 'KIRIM PESAN';
-        });
+        if (st) st.textContent = 'Sedang meneruskan pesan Anda ke ' + emailTujuan + '...';
       });
     }
   }
