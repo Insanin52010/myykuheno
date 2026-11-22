@@ -1166,3 +1166,29 @@ html[data-mode="gelap"] .contact-box {
   margin: 0 !important;
   text-align: left;
 }
+
+/* Foto / Ikon Bahasa Pemrograman di Kartu Skill */
+.skill-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.skill-photo {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px -4px rgba(42, 33, 28, 0.14);
+  border: 1px solid color-mix(in srgb, var(--tema-teks, #2a211c) 10%, transparent);
+}
+
+.skill-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

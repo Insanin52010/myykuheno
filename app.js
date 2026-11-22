@@ -99,7 +99,13 @@
 
       (skill.length ? '<section class="section tight-top" id="skill" aria-labelledby="skill-h"><div class="wrap"><p class="label">/ Bahasa Pemrograman & Tools</p><h2 id="skill-h" class="h2">' + miring(D.judulSkill) + '</h2><p class="section-sub">' + esc(D.ketSkill) + '</p><div class="skill-grid">' +
         skill.map(function (sk) {
-          return '<article class="skill-card" data-bagian="panel"><span class="skill-cat">' + esc(sk.kategori) + '</span><h3>' + esc(sk.nama) + '</h3><p>' + esc(sk.ket) + '</p></article>';
+          return '<article class="skill-card" data-bagian="panel">' +
+            '<div class="skill-top-row">' +
+              (sk.foto ? '<div class="skill-photo"><img src="' + esc(sk.foto) + '" alt="Ikon ' + esc(sk.nama) + '" loading="lazy"></div>' : '') +
+              '<span class="skill-cat">' + esc(sk.kategori) + '</span>' +
+            '</div>' +
+            '<h3>' + esc(sk.nama) + '</h3><p>' + esc(sk.ket) + '</p>' +
+          '</article>';
         }).join('') + '</div></div></section>' : '') +
 
       (angka.length ? '<section class="section" aria-labelledby="num-h"><div class="wrap numbers"><div class="numbers-head"><h2 id="num-h" class="h2 left">' + miring(D.judulAngka) + '</h2><p>' + esc(D.ketAngka) + '</p></div><div class="numbers-list">' +
