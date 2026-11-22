@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#ECFEFF"/>
+  <ellipse cx="60" cy="34" rx="26" ry="9" fill="#00758F"/>
+  <path d="M34 34v16c0 5 11.6 9 26 9s26-4 26-9V34" fill="#008BB9"/>
+  <ellipse cx="60" cy="34" rx="26" ry="9" fill="#38BDF8"/>
+  <path d="M34 50v16c0 5 11.6 9 26 9s26-4 26-9V50" fill="#00758F"/>
+  <path d="M34 66v14c0 5 11.6 9 26 9s26-4 26-9V66" fill="#F29111"/>
+  <text x="60" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#2A211C">phpMyAdmin</text>
+</svg>

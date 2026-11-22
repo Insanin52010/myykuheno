@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#F0FDF4"/>
+  <path d="M42 26c-8 0-12 3.5-12 9v7h14v3H26c-5 0-9 3.5-9 10s3.5 11 9 11h5v-7c0-5 4-9 9-9h14c4 0 7-3 7-7v-8c0-5.5-4.5-9-11-9h-8zm-4 4a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z" fill="#3776AB"/>
+  <path d="M46 78c8 0 12-3.5 12-9v-7H44v-3h18c5 0 9-3.5 9-10s-3.5-11-9-11h-5v7c0 5-4 9-9 9H34c-4 0-7 3-7 7v8c0 5.5 4.5 9 11 9h8zm4-4a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="#FFD43B"/>
+  <polygon points="88,36 105,46 105,66 88,76 71,66 71,46" fill="#5FA04E"/>
+  <text x="88" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="12" fill="#fff">JS</text>
+  <text x="60" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#2A211C">Python &amp; Node</text>
+</svg>

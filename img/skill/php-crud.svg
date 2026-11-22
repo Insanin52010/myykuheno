@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#EEF2FF"/>
+  <ellipse cx="60" cy="56" rx="42" ry="24" fill="#777BB4"/>
+  <ellipse cx="60" cy="56" rx="38" ry="20" stroke="#fff" stroke-width="2" stroke-opacity="0.4"/>
+  <text x="60" y="63" text-anchor="middle" font-family="system-ui, sans-serif" font-style="italic" font-weight="900" font-size="25" fill="#fff">php</text>
+  <text x="60" y="106" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="800" font-size="13" fill="#2A211C">PHP &amp; CRUD</text>
+</svg>
