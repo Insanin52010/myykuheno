@@ -38,7 +38,6 @@
   var karya = D.karya || [];
   var unggulan = karya.filter(function (k) { return k.unggulan; });
   var emailTujuan = D.email || 'insaninkamiliaannisaa@gmail.com';
-  var emailUrl = 'mailto:' + emailTujuan;
 
   // ---------- Beranda ----------
   function beranda() {
@@ -78,20 +77,20 @@
         unggulan.map(function (k) {
           var tombolAksi = '';
           if (k.youtubeUrl) {
-            tombolAksi = '<div class="work-live-row">' +
+            tombolAksi = '<div class="work-live-row" style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">' +
               '<a class="btn glass-bubble btn-sm" href="' + esc(k.youtubeUrl) + '" target="_blank" rel="noopener">' + ikon('youtube') + 'Tonton Sekarang</a>' +
               '<a class="btn ghost glass-bubble btn-sm" href="' + urlKarya(k) + '">Penjelasan' + ikon('panah') + '</a>' +
             '</div>';
           } else if (k.linkLive) {
-            tombolAksi = '<div class="work-live-row">' +
+            tombolAksi = '<div class="work-live-row" style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">' +
               '<a class="btn glass-bubble btn-sm" href="' + esc(k.linkLive) + '" target="_blank" rel="noopener">' + ikon('globe') + esc(k.linkLabel || 'Buka Proyek') + '</a>' +
               '<a class="btn ghost glass-bubble btn-sm" href="' + urlKarya(k) + '">Detail Karya' + ikon('panah') + '</a>' +
             '</div>';
           }
-          return '<article class="work-card-wrap"><a class="work" href="' + urlKarya(k) + '"><div class="work-media" data-bagian="panel">' + sampul(k) + obj(k.objek, 'float', '210px') + '</div>' +
+          return '<div class="work-item"><a class="work in" href="' + urlKarya(k) + '"><div class="work-media" data-bagian="panel">' + sampul(k) + obj(k.objek, 'float', '210px') + '</div>' +
             '<div class="work-meta"><h3>' + esc(polos(k.judul)) + '</h3><p>' + esc(k.klien) + ' · ' + esc(k.tahun) + '</p><div class="tags">' + (k.tag || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div></div></a>' +
             tombolAksi +
-            '</article>';
+            '</div>';
         }).join('') + '</div></div></section>' +
 
       (sekolah.length ? '<section class="section" id="pendidikan" aria-labelledby="edu-h"><div class="wrap"><p class="label">/ Latar Belakang Pendidikan</p><h2 id="edu-h" class="h2">' + miring(D.judulSekolah) + '</h2><p class="section-sub">' + esc(D.ketSekolah) + '</p><div class="school-grid">' +
@@ -328,7 +327,7 @@
   // ---------- Gerak ----------
   function gerak() {
     var mo = html.classList.contains('mo');
-    var antre = '.shelf-head,.shelf-grid .thing,.statement-grid .chip,.steps .step,.numbers-head,.numbers-list .num,.works .work-card-wrap,.school-card,.skill-card,.about-grid > *,.xp li,.case-body .block,.case-nav,.stats .stat,.scope li,.next-case'.split(',');
+    var antre = '.shelf-head,.shelf-grid .thing,.statement-grid .chip,.steps .step,.numbers-head,.numbers-list .num,.works .work,.school-card,.skill-card,.about-grid > *,.xp li,.case-body .block,.case-nav,.stats .stat,.scope li,.next-case'.split(',');
     var judul = ['main .h2', '.cta h2', '.num .val', '.margin-fig b', '.lesson', '.hallo', '.label:not(.rise)'];
     var benda = ['.section .obj.float', '.cta .obj.float'];
     if (mo) {
