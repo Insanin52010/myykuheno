@@ -99,12 +99,12 @@ window.DATA = {
   judulSkill: "Bahasa pemrograman & {perangkat yang dipelajari}",
   ketSkill: "Materi yang sudah saya pelajari dan praktikkan selama bersekolah di SMKN 5 Malang.",
   skill: [
-    { nama: "HTML & CSS", kategori: "Frontend Web", foto: "img/skill/html-css.svg", ket: "Menyusun struktur halaman web semantik dan tata letak responsif." },
-    { nama: "JavaScript (JS)", kategori: "Interaktivitas", foto: "img/skill/javascript.svg", ket: "Membuat logika halaman web, animasi, dan interaksi pengguna." },
-    { nama: "PHP & CRUD", kategori: "Backend Web", foto: "img/skill/php-crud.svg", ket: "Membangun fitur Create, Read, Update, Delete dinamis berbasis server lokal." },
-    { nama: "phpMyAdmin (MySQL)", kategori: "Database", foto: "img/skill/mysql.svg", ket: "Merancang tabel, relasi, dan mengelola basis data secara terstruktur." },
-    { nama: "Python & Node.js", kategori: "Pemrograman", foto: "img/skill/python-node.svg", ket: "Mempelajari logika pemrograman dasar serta lingkungan runtime modern." },
-    { nama: "GitHub, Localhost & Vercel", kategori: "Workflow & Deploy", foto: "img/skill/github-vercel.svg", ket: "Pengembangan di server localhost, pengelolaan kode di GitHub, dan hosting online via Vercel." }
+    { nama: "HTML & CSS", kategori: "Frontend Web", persen: 80, level: "Mahir / Menengah", foto: "img/skill/html-css.svg", ket: "Menyusun struktur halaman web semantik dan tata letak responsif." },
+    { nama: "JavaScript (JS)", kategori: "Interaktivitas", persen: 65, level: "Menengah", foto: "img/skill/javascript.svg", ket: "Membuat logika halaman web, animasi, dan interaksi pengguna." },
+    { nama: "PHP & CRUD", kategori: "Backend Web", persen: 84, level: "Mahir", foto: "img/skill/php-crud.svg", ket: "Membangun fitur Create, Read, Update, Delete dinamis berbasis server lokal." },
+    { nama: "phpMyAdmin (MySQL)", kategori: "Database", persen: 86, level: "Mahir", foto: "img/skill/mysql.svg", ket: "Merancang tabel, relasi, dan mengelola basis data secara terstruktur." },
+    { nama: "Python & Node.js", kategori: "Pemrograman", persen: 40, level: "Dasar / Eksplorasi", foto: "img/skill/python-node.svg", ket: "Mempelajari logika pemrograman dasar serta lingkungan runtime modern." },
+    { nama: "GitHub, Localhost & Vercel", kategori: "Workflow & Deploy", persen: 86, level: "Mahir", foto: "img/skill/github-vercel.svg", ket: "Pengembangan di server localhost, pengelolaan kode di GitHub, dan hosting online via Vercel." }
   ],
 
   // ---------- Karya ----------

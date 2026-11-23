@@ -112,12 +112,25 @@
 
       (skill.length ? '<section class="section tight-top" id="skill" aria-labelledby="skill-h"><div class="wrap"><p class="label">/ Bahasa Pemrograman & Tools</p><h2 id="skill-h" class="h2">' + miring(D.judulSkill) + '</h2><p class="section-sub">' + esc(D.ketSkill) + '</p><div class="skill-grid">' +
         skill.map(function (sk) {
-          return '<article class="skill-card" data-bagian="panel">' +
+          var nilaiPersen = typeof sk.persen === 'number' ? Math.max(0, Math.min(100, sk.persen)) : 0;
+          var barSkill = typeof sk.persen === 'number'
+            ? '<div style="margin-top:auto;padding-top:1rem">' +
+                '<div style="display:flex;justify-content:space-between;align-items:center;font-size:.82rem;margin-bottom:.42rem;font-weight:600">' +
+                  '<span style="opacity:.75">' + esc(sk.level || 'Tingkat Penguasaan') + '</span>' +
+                  '<span style="color:var(--tema-aksen, #b85c38);font-weight:700">' + nilaiPersen + '%</span>' +
+                '</div>' +
+                '<div role="progressbar" aria-valuenow="' + nilaiPersen + '" aria-valuemin="0" aria-valuemax="100" aria-label="Penguasaan ' + esc(sk.nama) + ' ' + nilaiPersen + ' persen" style="width:100%;height:7px;border-radius:999px;background:rgba(128,128,128,.2);overflow:hidden">' +
+                  '<div style="width:' + nilaiPersen + '%;height:100%;border-radius:999px;background:var(--tema-aksen, #b85c38);transition:width .6s ease"></div>' +
+                '</div>' +
+              '</div>'
+            : '';
+          return '<article class="skill-card" data-bagian="panel" style="display:flex;flex-direction:column">' +
             '<div class="skill-top-row">' +
               (sk.foto ? '<div class="skill-photo"><img src="' + esc(sk.foto) + '" alt="Ikon ' + esc(sk.nama) + '" loading="lazy"></div>' : '') +
               '<span class="skill-cat">' + esc(sk.kategori) + '</span>' +
             '</div>' +
             '<h3>' + esc(sk.nama) + '</h3><p>' + esc(sk.ket) + '</p>' +
+            barSkill +
           '</article>';
         }).join('') + '</div></div></section>' : '') +
 
