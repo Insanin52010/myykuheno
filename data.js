@@ -25,8 +25,8 @@ window.DATA = {
   sosial: [
     { nama: "Email", url: "mailto:insaninkamiliaannisaa@gmail.com", ikon: "email" },
     { nama: "GitHub", url: "https://github.com/Insanin52010", ikon: "github" },
-    { nama: "Website Ekskul", url: "https://ekskul-khaki.vercel.app/", ikon: "bintang" },
-    { nama: "Maps SMKN 5 Malang", url: "https://www.google.com/maps/search/?api=1&query=SMK+Negeri+5+Malang+Jl.+Terusan+Ikan+Piranha+Atas+No.50", ikon: "panah" }
+    { nama: "Instagram", url: "https://www.instagram.com/myykuheno?bqrl=MTlqbTh5cXltZmo2bg==", ikon: "instagram" },
+    { nama: "YouTube", url: "https://www.youtube.com/@xyzdhja", ikon: "youtube" }
   ],
 
   // ---------- Marquee "Perjalanan Sekolah & Teknologi" ----------
@@ -51,7 +51,7 @@ window.DATA = {
     ],
     kanan: [
       { ikon: "bintang", teks: "Deploy Website di Vercel" },
-      { ikon: "megafon", teks: "Mapil AI (Suno, Poster, Komik)" },
+      { ikon: "megafon", teks: "Mapil AI (Gemini, Flow, Suno)" },
       { ikon: "tim", teks: "Organisasi / Ekskul PMR" }
     ]
   },
@@ -108,9 +108,9 @@ window.DATA = {
   ],
 
   // ---------- Karya ----------
-  judulKarya: "{n} karya, {dari localhost ke publikasi AI}",
+  judulKarya: "{n} karya, {web, video YouTube & proyek AI}",
   judulRak: "Semua {n} karya & proyek",
-  ketRak: "Kumpulan proyek pemrograman kelas 10, website kelas 11 di Vercel, serta karya Mapil AI.",
+  ketRak: "Kumpulan proyek pemrograman kelas 10, website kelas 11 di Vercel, video tugas YouTube, serta karya Mapil AI.",
   karya: [
     {
       id: "website-ekskul", unggulan: true,
@@ -134,6 +134,86 @@ window.DATA = {
       pelajaran: "Mendeploy proyek ke Vercel membuat karya yang tadinya hanya ada di komputer lokal bisa langsung dilihat dan digunakan orang lain."
     },
     {
+      id: "video-ai-gemini-flow-1", unggulan: true,
+      label: "Video Mapil AI (Gemini & Google Flow #1)", objek: "img/objek/clapperboard.webp",
+      judul: "Kreasi Video AI {dengan Gemini AI & Google Flow}",
+      sampul: "https://i.ytimg.com/vi/QrTLM50fk44/hqdefault.jpg",
+      klien: "Tugas Mapil AI · SMKN 5 Malang", peran: "Kreator Video AI", tahun: "Kelas 11",
+      youtubeUrl: "https://youtu.be/QrTLM50fk44?si=7bKnNX-9UF6fPmqL",
+      tag: ["Mapil AI", "Gemini AI", "Google Flow"],
+      ringkas: "Hasil tugas mata pelajaran pilihan (Mapil) AI membuat video kreatif menggunakan bantuan Gemini AI untuk penyusunan ide/prompt dan Google Flow untuk menghasilkan adegan video.",
+      angkaSamping: [{ b: "Gemini AI", t: "penyusunan ide & prompt" }, { b: "Google Flow", t: "generasi visual video" }],
+      tantangan: "Menyusun rangkaian prompt yang detail agar alur cerita dan tampilan visual video yang dihasilkan terlihat selaras.",
+      dilakukan: "Saya merancang konsep dan prompt adegan menggunakan Gemini AI, lalu mengolahnya menjadi video utuh melalui Google Flow dan mengunggahnya ke YouTube.",
+      hasil: [
+        "Berhasil memproduksi video berbasis AI yang menarik untuk tugas Mapil AI.",
+        "Memahami cara menggabungkan Gemini AI dan Google Flow dalam pembuatan konten video."
+      ],
+      statistik: [{ b: "Gemini AI", t: "konsep & prompt" }, { b: "Google Flow", t: "pembuatan video" }, { b: "YouTube", t: "publikasi karya" }],
+      bagian: [{ t: "Perancangan prompt di Gemini AI", p: "sendiri" }, { t: "Pembuatan video di Google Flow", p: "sendiri" }],
+      pelajaran: "Detail deskripsi suasana dan gerakan dalam prompt sangat memengaruhi kualitas hasil video dari Google Flow."
+    },
+    {
+      id: "video-ai-gemini-flow-2", unggulan: true,
+      label: "Video Mapil AI (Gemini & Google Flow #2)", objek: "img/objek/camera.webp",
+      judul: "Eksplorasi Video AI Lanjutan {Gemini AI & Google Flow}",
+      sampul: "https://i.ytimg.com/vi/PmkAcOdZu1E/hqdefault.jpg",
+      klien: "Tugas Mapil AI · SMKN 5 Malang", peran: "Kreator Video AI", tahun: "Kelas 11",
+      youtubeUrl: "https://youtu.be/PmkAcOdZu1E?si=HCPegOrD1Oio0Ks1",
+      tag: ["Mapil AI", "Gemini AI", "Google Flow"],
+      ringkas: "Video karya kedua pada tugas Mapil AI dengan konsep cerita dan visual berbeda, kembali memanfaatkan kolaborasi Gemini AI dan Google Flow.",
+      angkaSamping: [{ b: "Karya #2", t: "konsep visual berbeda" }, { b: "Mapil AI", t: "kelas 11 SMKN 5 Malang" }],
+      tantangan: "Menghadirkan nuansa, gaya visual, dan alur cerita baru yang berbeda dari proyek video AI pertama.",
+      dilakukan: "Saya menyusun variasi prompt baru di Gemini AI serta merangkai klip video berbeda menggunakan Google Flow hingga siap ditonton di YouTube.",
+      hasil: [
+        "Menghasilkan video AI kedua dengan tema dan transisi visual yang segar.",
+        "Melatih konsistensi pengaturan prompt untuk berbagai skenario video."
+      ],
+      statistik: [{ b: "Video #2", t: "tema berbeda" }, { b: "Google Flow", t: "visual AI" }, { b: "YouTube", t: "hasil publikasi" }],
+      bagian: [{ t: "Eksplorasi ide & prompt baru", p: "sendiri" }, { t: "Generate video & upload YouTube", p: "sendiri" }],
+      pelajaran: "Eksperimen berulang dengan struktur prompt membantu menghasilkan variasi visual AI yang lebih kaya."
+    },
+    {
+      id: "video-tutorial-gdrive", unggulan: true,
+      label: "Tutorial Google Drive (YouTube)", objek: "img/objek/report.webp",
+      judul: "Video Panduan {Cara Upload & Kelola File di Google Drive}",
+      sampul: "https://i.ytimg.com/vi/DGlqGi8Oyy0/hqdefault.jpg",
+      klien: "Tugas Praktik Digital · SMKN 5 Malang", peran: "Pembuat Tutorial", tahun: "Kelas 11",
+      youtubeUrl: "https://youtu.be/DGlqGi8Oyy0?si=y-mlUK_5EJ9X45Fn",
+      tag: ["Tutorial", "Google Drive", "Cloud Storage"],
+      ringkas: "Video tutorial langkah demi langkah mengenai cara mengunggah (upload), mengatur folder, dan membagikan file secara rapi di Google Drive.",
+      angkaSamping: [{ b: "Tutorial", t: "panduan praktik langsung" }, { b: "G-Drive", t: "manajemen file cloud" }],
+      tantangan: "Menjelaskan langkah penggunaan fitur Google Drive secara runtut dan mudah dipahami oleh penonton.",
+      dilakukan: "Saya merekam layar praktik langsung mulai dari cara upload file, membuat folder terstruktur, hingga mengatur akses berbagi tautan di Google Drive.",
+      hasil: [
+        "Video panduan tersusun jelas dan praktis untuk diikuti pemula.",
+        "Mendokumentasikan keterampilan pengelolaan penyimpanan cloud sehari-hari."
+      ],
+      statistik: [{ b: "Tutorial", t: "langkah demi langkah" }, { b: "Google Drive", t: "cloud storage" }, { b: "YouTube", t: "video edukasi" }],
+      bagian: [{ t: "Perekaman layar & penjelasan", p: "sendiri" }, { t: "Editing & upload ke YouTube", p: "sendiri" }],
+      pelajaran: "Membuat video tutorial melatih penyampaian langkah teknis secara sistematis dan komunikatif."
+    },
+    {
+      id: "video-biografi-tokoh", unggulan: true,
+      label: "Video Biografi Tokoh (Editing)", objek: "img/objek/swatches.webp",
+      judul: "Video Biografi Tokoh Terkenal {dengan Teknik Video Editing}",
+      sampul: "https://i.ytimg.com/vi/D03xrRgxFgo/hqdefault.jpg",
+      klien: "Tugas Proyek Video & Editing · SMKN 5 Malang", peran: "Video Editor", tahun: "Kelas 11",
+      youtubeUrl: "https://youtu.be/D03xrRgxFgo?si=fgFLLJXVArd8dT4K",
+      tag: ["Video Editing", "Biografi Tokoh", "Storytelling"],
+      ringkas: "Proyek penyuntingan video (video editing) yang mengisahkan perjalanan hidup dan inspirasi tokoh terkenal secara visual dan informatif.",
+      angkaSamping: [{ b: "Editing", t: "transisi, teks & audio" }, { b: "Biografi", t: "kisah tokoh terkenal" }],
+      tantangan: "Memadukan narasi biografi, potongan gambar pendukung, musik latar, serta teks keterangan agar video nyaman disimak.",
+      dilakukan: "Saya menyusun materi biografi tokoh, mengatur alur cerita, lalu melakukan penyuntingan video meliputi pemotongan klip, transisi, teks, dan penyelarasan audio.",
+      hasil: [
+        "Video biografi tampil rapi dengan alur penyampaian yang menarik.",
+        "Mengasah kemampuan dasar hingga menengah dalam penyuntingan video."
+      ],
+      statistik: [{ b: "Editing", t: "visual & audio sync" }, { b: "Biografi", t: "tokoh terkenal" }, { b: "YouTube", t: "hasil karya" }],
+      bagian: [{ t: "Penyusunan materi biografi", p: "sendiri" }, { t: "Video editing & final render", p: "sendiri" }],
+      pelajaran: "Keseimbangan antara ritme potongan gambar, musik latar, dan kejelasan teks membuat cerita biografi lebih hidup."
+    },
+    {
       id: "menu-makanan", unggulan: true,
       label: "Menu Makanan (Kelas 10)", objek: "img/objek/cylinder.webp",
       judul: "Aplikasi Menu Makanan {berbasis localhost & database}",
@@ -154,7 +234,7 @@ window.DATA = {
     },
     {
       id: "komik-modul-ai", unggulan: true,
-      label: "Komik & Modul SD (Mapil AI)", objek: "img/objek/swatches.webp",
+      label: "Komik & Modul SD (Mapil AI)", objek: "img/objek/funnel.webp",
       judul: "Pembuatan Komik Edukasi & {Modul Belajar SD dengan AI}",
       sampul: "img/karya/video-edukasi.svg",
       klien: "Mata Pelajaran Pilihan (Mapil) AI · Kelas 11", peran: "Kreator Konten AI", tahun: "Kelas 11",
@@ -173,7 +253,7 @@ window.DATA = {
     },
     {
       id: "musik-poster-foto-ai", unggulan: true,
-      label: "Lagu Suno AI, Poster & Edit Foto", objek: "img/objek/camera.webp",
+      label: "Lagu Suno AI, Poster & Edit Foto", objek: "img/objek/barchart.webp",
       judul: "Kreasi Lagu Suno AI, {Desain Poster & Transformasi Foto}",
       sampul: "img/karya/tim-kreatif.svg",
       klien: "Mata Pelajaran Pilihan (Mapil) AI · Kelas 11", peran: "Kreator Multimedia AI", tahun: "Kelas 11",
@@ -197,15 +277,15 @@ window.DATA = {
   ketAngka: "Fokus pada praktik langsung di SMKN 5 Malang, pengelolaan database, pengembangan web, hingga eksplorasi Mapil AI.",
   angka: [
     { nilai: "9+", satuan: "teknologi", ket: "HTML, CSS, JS, Python, Node.js, GitHub, phpMyAdmin (MySQL), CRUD, dan PHP yang dipelajari di SMKN 5 Malang.", sumber: "Jurusan PPLG / RPL", sumberKet: "Kelas 10 – Kelas 11" },
-    { nilai: "5+", satuan: "karya AI", ket: "Komik digital, modul SD, lagu dengan Suno AI, poster kreatif, dan ubah foto di Mapil AI kelas 11.", sumber: "Mapil AI", sumberKet: "SMKN 5 Malang" }
+    { nilai: "8+", satuan: "karya", ket: "Website Ekskul di Vercel, 4 video YouTube (Gemini AI, Google Flow, Tutorial Drive, Biografi), komik, modul SD, dan Suno AI.", sumber: "Web & Mapil AI", sumberKet: "SMKN 5 Malang" }
   ],
 
   // ---------- Cara kerja ----------
   judulCara: "Cara saya {belajar & berkarya}",
   cara: [
     { judul: "Pahami & Praktikkan", ket: "Mengikuti penjelasan guru, mempraktikkan langsung di localhost & phpMyAdmin, lalu memastikan saya bisa menjelaskan alurnya.", objek: "img/objek/flask.webp" },
-    { judul: "Bangun & Eksplorasi", ket: "Mengembangkan website dengan HTML, CSS, JS, PHP maupun bereksperimen membuat lagu, komik, dan poster lewat AI.", objek: "img/objek/swatches.webp" },
-    { judul: "Publikasikan", ket: "Mengunggah karya yang sudah siap seperti Website Ekskul ke Vercel agar mudah diakses siapa saja secara online.", objek: "img/objek/paperplane.webp" }
+    { judul: "Bangun & Eksplorasi", ket: "Mengembangkan website dengan HTML, CSS, JS, PHP maupun bereksperimen membuat video AI, lagu, komik, dan poster.", objek: "img/objek/swatches.webp" },
+    { judul: "Publikasikan", ket: "Mengunggah karya yang sudah siap seperti Website Ekskul ke Vercel serta memublikasikan video tugas ke YouTube.", objek: "img/objek/paperplane.webp" }
   ],
 
   // ---------- Tentang ----------
@@ -217,13 +297,13 @@ window.DATA = {
   pengalaman: [
     { peran: "Siswi Kelas 11 — Jurusan PPLG / RPL", tempat: "SMK Negeri 5 Malang", mulai: "Kelas 10", selesai: "Sekarang (Kelas 11)" },
     { peran: "Anggota Aktif Organisasi / Ekskul", tempat: "Palang Merah Remaja (PMR) SMKN 5 Malang", mulai: "Aktif", selesai: "Sekarang" },
-    { peran: "Peserta Mata Pelajaran Pilihan (Mapil)", tempat: "Mapil AI (Suno AI, Komik, Modul SD, Poster)", mulai: "Kelas 11", selesai: "Sekarang" },
+    { peran: "Peserta Mata Pelajaran Pilihan (Mapil)", tempat: "Mapil AI (Gemini AI, Google Flow, Suno AI, Komik)", mulai: "Kelas 11", selesai: "Sekarang" },
     { peran: "Alumni Pendidikan Menengah & Dasar", tempat: "MTs Almaarif 02 Singosari & SDN Langlang", mulai: "SD", selesai: "MTs" }
   ],
 
   // ---------- Ajakan ----------
-  judulAjak: "Lihat karya web & {lokasi sekolah saya}",
-  ketAjak: "Kunjungi Website Ekskul yang sudah saya deploy di Vercel atau cek lokasi SMKN 5 Malang di Google Maps.",
+  judulAjak: "Lihat karya web & {terhubung dengan saya}",
+  ketAjak: "Kunjungi Website Ekskul, ikuti media sosial saya di bawah ini, atau kirim pesan langsung ke email saya.",
   tombolAjak: "Buka Website Ekskul",
   urlAjak: "https://ekskul-khaki.vercel.app/"
 };

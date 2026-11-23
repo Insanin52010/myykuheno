@@ -18,6 +18,7 @@
     email: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
     linkedin: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>',
     instagram: '<rect width="20" height="20" x="2" y="2" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/>',
+    youtube: '<path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/>',
     bintang: '<path d="M12 3v18"/><path d="M3 12h18"/><path d="m5.6 5.6 12.8 12.8"/><path d="m18.4 5.6-12.8 12.8"/>',
     megafon: '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
     tim: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
@@ -75,9 +76,21 @@
 
       '<section class="section tight-top" id="karya" aria-labelledby="work-h"><div class="wrap"><p class="label">/ Karya & Proyek</p><h2 id="work-h" class="h2">' + miring((D.judulKarya || '').replace('{n}', unggulan.length)) + '</h2><div class="works">' +
         unggulan.map(function (k) {
+          var tombolAksi = '';
+          if (k.youtubeUrl) {
+            tombolAksi = '<div class="work-live-row">' +
+              '<a class="btn glass-bubble btn-sm" href="' + esc(k.youtubeUrl) + '" target="_blank" rel="noopener">' + ikon('youtube') + 'Tonton Sekarang</a>' +
+              '<a class="btn ghost glass-bubble btn-sm" href="' + urlKarya(k) + '">Penjelasan' + ikon('panah') + '</a>' +
+            '</div>';
+          } else if (k.linkLive) {
+            tombolAksi = '<div class="work-live-row">' +
+              '<a class="btn glass-bubble btn-sm" href="' + esc(k.linkLive) + '" target="_blank" rel="noopener">' + ikon('globe') + esc(k.linkLabel || 'Buka Proyek') + '</a>' +
+              '<a class="btn ghost glass-bubble btn-sm" href="' + urlKarya(k) + '">Detail Karya' + ikon('panah') + '</a>' +
+            '</div>';
+          }
           return '<article class="work-card-wrap"><a class="work" href="' + urlKarya(k) + '"><div class="work-media" data-bagian="panel">' + sampul(k) + obj(k.objek, 'float', '210px') + '</div>' +
             '<div class="work-meta"><h3>' + esc(polos(k.judul)) + '</h3><p>' + esc(k.klien) + ' · ' + esc(k.tahun) + '</p><div class="tags">' + (k.tag || []).map(function (t) { return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div></div></a>' +
-            (k.linkLive ? '<div class="work-live-row"><a class="btn glass-bubble btn-sm" href="' + esc(k.linkLive) + '" target="_blank" rel="noopener">' + ikon('globe') + esc(k.linkLabel || 'Buka Proyek') + '</a><a class="btn ghost glass-bubble btn-sm" href="' + urlKarya(k) + '">Detail Karya' + ikon('panah') + '</a></div>' : '') +
+            tombolAksi +
             '</article>';
         }).join('') + '</div></div></section>' +
 
@@ -149,12 +162,19 @@
     if ((k.bagian || []).length) blok.push(['bagian', 'Bagian saya', '<ul class="scope" style="margin-top:1.2rem">' + k.bagian.map(function (b) { var p = PORSI[b.p] || PORSI.tim; return '<li><span>' + esc(b.t) + '</span><span class="portion" data-p="' + p[0] + '">' + p[1] + '</span></li>'; }).join('') + '</ul>', ' full']);
     if (k.pelajaran) blok.push(['pelajaran', 'Yang saya pelajari', '<p class="lesson" data-words>' + esc(k.pelajaran) + '</p>', ' full']);
 
+    var tombolDetail = '';
+    if (k.youtubeUrl) {
+      tombolDetail = '<div class="rise" style="--d:.21s;margin-top:1.2rem"><a class="btn glass-bubble" href="' + esc(k.youtubeUrl) + '" target="_blank" rel="noopener">' + ikon('youtube') + 'Tonton Sekarang</a></div>';
+    } else if (k.linkLive) {
+      tombolDetail = '<div class="rise" style="--d:.21s;margin-top:1.2rem"><a class="btn glass-bubble" href="' + esc(k.linkLive) + '" target="_blank" rel="noopener">' + ikon('globe') + esc(k.linkLabel || 'Kunjungi Website') + '</a></div>';
+    }
+
     $('#main').innerHTML =
       '<section class="case-hero"><div class="wrap"><a class="back rise" href="index.html#karya">' + ikon('panah') + '<span>Semua karya</span></a>' +
         '<h1 class="rise" style="--d:.05s" data-bagian="teks">' + miring(k.judul) + '</h1>' +
         '<ul class="case-meta rise" style="--d:.12s" aria-label="Fakta proyek">' + fakta.map(function (f) { return '<li class="pill" data-bagian="panel">' + esc(f) + '</li>'; }).join('') + '</ul>' +
         '<p class="case-summary rise" style="--d:.18s">' + esc(k.ringkas) + '</p>' +
-        (k.linkLive ? '<div class="rise" style="--d:.21s;margin-top:1.2rem"><a class="btn glass-bubble" href="' + esc(k.linkLive) + '" target="_blank" rel="noopener">' + ikon('globe') + esc(k.linkLabel || 'Kunjungi Website') + '</a></div>' : '') +
+        tombolDetail +
         '<div class="case-cover rise di-utama" style="--d:.24s" data-bagian="utama">' + obj(lanjut && lanjut !== k ? lanjut.objek : '', 'float side', '160px') + sampul(k).replace('loading="lazy"', 'loading="eager"') + obj(k.objek, 'float main', '256px') + '</div>' +
       '</div></section>' +
       '<div class="wrap case-body"><aside class="case-nav" aria-label="Di halaman ini">' + blok.slice(0, 4).map(function (b) { return '<a href="#' + b[0] + '">' + b[1] + '</a>'; }).join('') +
@@ -163,20 +183,27 @@
       (lanjut && lanjut !== k ? '<div class="wrap" style="padding-bottom:var(--sp-tight)"><a class="next-case glass-bubble" href="' + urlKarya(lanjut) + '"><small>Karya berikutnya</small><span>' + esc(polos(lanjut.judul)) + ikon('panah') + '</span></a></div>' : '');
   }
 
-  // ---------- Ajakan + Contact Me + Footer ----------
+  // ---------- Ajakan + Media Sosial + Contact Me + Footer ----------
   function akhir() {
     var sos = D.sosial || [];
-    var ctaHref = D.urlAjak || emailUrl;
-    var isExt = /^http/.test(ctaHref);
     var urlTerimaKasih = new URL('terimakasih.html', location.href).href;
+
+    var barSosmed = sos.map(function (s) {
+      var ext = /^http/.test(s.url) ? ' target="_blank" rel="noopener"' : '';
+      return '<a class="btn ghost glass-bubble" href="' + esc(s.url) + '"' + ext + ' aria-label="' + esc(s.nama) + '" style="display:inline-flex;align-items:center;gap:.5rem">' +
+        ikon(s.ikon) + '<span>' + esc(s.nama) + '</span>' +
+      '</a>';
+    }).join('');
 
     $('#akhir').outerHTML =
       '<section class="cta" id="kontak" aria-labelledby="cta-h"><div class="wrap cta-inner">' + obj('img/objek/envelope.webp', 'float o-envelope', '136px') + obj('img/objek/paperplane.webp', 'float o-plane', '168px') +
         '<h2 id="cta-h" data-bagian="teks">' + miring(D.judulAjak) + '</h2><p>' + esc(D.ketAjak) + '</p>' +
-        '<div class="hero-cta" style="justify-content:center;margin-top:1.75rem">' +
-          '<a class="btn glass-bubble" href="' + esc(ctaHref) + '"' + (isExt ? ' target="_blank" rel="noopener"' : '') + ' data-bagian="utama">' + ikon('globe') + esc(D.tombolAjak || 'Buka Website Ekskul') + '</a>' +
-          '<a class="btn ghost glass-bubble" href="mailto:' + esc(emailTujuan) + '">' + ikon('email') + esc(emailTujuan) + '</a>' +
-          '<a class="btn ghost glass-bubble" href="https://github.com/Insanin52010" target="_blank" rel="noopener" aria-label="GitHub Insanin52010">' + ikon('github') + 'GitHub</a>' +
+
+        '<div style="margin-top:1.75rem">' +
+          '<p class="label" style="margin-bottom:.85rem">/ Media Sosial & Kontak Langsung</p>' +
+          '<div class="hero-cta" style="justify-content:center;flex-wrap:wrap;gap:.75rem">' +
+            barSosmed +
+          '</div>' +
         '</div>' +
 
         '<div class="contact-box" data-bagian="panel">' +
